@@ -4,7 +4,8 @@
   "description": "Boilerplate to quickstart React component development",
   "main": "./dist/index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.babel.js",
+    "build-scss": "node-sass src -o dist",
+    "build": "npm run clean && npm run build-scss && babel src --out-dir dist",
     "build-examples": "webpack --config examples/webpack.config.babel.js --progress",
     "clean": "rm -rf dist coverage",
     "coverage": "jest --coverage",
@@ -17,6 +18,7 @@
     "react": "^16.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.5",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
@@ -35,7 +37,6 @@
     "node-sass": "^4.7.2",
     "prop-types": "^15.6.0",
     "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^16.6.0",
     "react-hot-loader": "next",
     "react-test-renderer": "^16.0.0",
     "regenerator-runtime": "^0.12.1",
@@ -44,6 +45,10 @@
     "webpack": "^4.9.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.3.0",
+    "react-dom": ">= 16.3.0"
   },
   "resolutions": {
     "babel-core": "7.0.0-bridge.0"

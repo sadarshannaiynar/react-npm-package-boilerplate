@@ -58,12 +58,16 @@ export default () => ({
       {
         test: /\.(scss)$/,
         loader: 'style-loader!css-loader!sass-loader'
+      },
+      {
+        test: /\.(css)$/,
+        loader: 'style-loader!css-loader'
       }
     ]
   },
 
   resolve: {
-    extensions: ['.js', '.jsx', '.scss']
+    extensions: ['.js', '.jsx', '.scss', '.css']
   },
 
   plugins: [new webpack.HotModuleReplacementPlugin()],
